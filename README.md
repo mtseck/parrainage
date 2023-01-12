@@ -10,7 +10,9 @@
 
 Installer git sur votre ordinateur :
 -[Windows](https://github.com/git-guides/install-git#install-git-on-windows)
+
 -[Mac](https://github.com/git-guides/install-git#install-git-on-mac)
+
 -[Linux](https://github.com/git-guides/install-git#install-git-on-linux)
 
 ## Mise en Place
