@@ -2,9 +2,12 @@
 
 ## Table des Matières
 
-- Prérequis
-- Mise en Place
-- à Savoir
+- [Prérequis](https://github.com/mtseck/parrainage/blob/main/README.md#prérequis)
+
+- [Mise en Place](https://github.com/mtseck/parrainage/blob/main/README.md#mise-en-place)
+
+- [à Savoir](https://github.com/mtseck/parrainage/blob/main/README.md#à-savoir)
+
 
 ## Prérequis
 
