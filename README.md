@@ -18,7 +18,7 @@ Installer git sur votre ordinateur :
 
 ## Mise en Place
 
-Il faut se placer dans le repertoire de publication de votre serveur web puis executer la commande :
+Il faut ouvrir un terminal (qui à accès aux commandes git) et se placer dans le repertoire de publication de votre serveur web puis executer la commande :
 ```
 git clone "https://github.com/mtseck/parrainage.git"
 ```
