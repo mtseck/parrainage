@@ -30,3 +30,7 @@ vous pouvez ensuite travailler sur le projet.
 ```
 git commit -m "donner un titre à la modif que vous avez faite"
 ```
+Vous pouvez ensuite valider votre commit sur le depot distant avec :
+```
+git push
+```
