@@ -300,7 +300,10 @@ form.sign-in-form {
 @media (max-width: 870px) {
     .container {
         min-height: 800px;
-        height: 100vh;
+        height: 114vh;
+    }
+    .sign-up-form{
+        margin-bottom: 50px;
     }
 
     .signin-signup {
