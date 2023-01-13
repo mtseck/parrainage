@@ -17,6 +17,11 @@ input {
     background-color: #fff;
     min-height: 100vh;
     overflow: hidden;
+    transition: background-color .5s ease;
+}
+
+.container.dark-theme{
+    background-color: #2B3649;
 }
 
 .forms-container {
@@ -64,6 +69,11 @@ form.sign-in-form {
     font-size: 2.2rem;
     color: #444;
     margin-bottom: 10px;
+    transition: color .5s ease;
+}
+
+.dark-theme .title {
+    color: silver;
 }
 
 .input-field {
@@ -300,7 +310,7 @@ form.sign-in-form {
 @media (max-width: 870px) {
     .container {
         min-height: 800px;
-        height: 114vh;
+        height: 100vh;
     }
     .sign-up-form{
         margin-bottom: 50px;

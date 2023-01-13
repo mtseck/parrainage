@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/toggle.css">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
@@ -96,9 +97,18 @@
                 <img src="img/register.svg" class="image" alt="" />
             </div>
         </div>
+        <div class="theme-toggle">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+                <i class="fas fa-moon"></i>
+                <i class='fas fa-sun'></i>
+                <div class='ball'>
+            </label>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/toggle.js"></script>
 </body>
 
 </html>
