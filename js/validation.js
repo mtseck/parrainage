@@ -1,5 +1,7 @@
 window.addEventListener('load',function(){
+    let cible = document.body.getAttribute("cible");
     let signUpForm = document.querySelector(".sign-up-form");
+    signUpForm.reset();
 
     let inputPrenom = document.querySelector("input[name=prenom]");
     let inputNom = document.querySelector("input[name=nom]");
@@ -18,6 +20,7 @@ window.addEventListener('load',function(){
     };
 
     let signInForm = document.querySelector(".sign-in-form");
+    signInForm.reset();
 
     /* Verification dynamique des champs */
 
@@ -99,9 +102,27 @@ window.addEventListener('load',function(){
     signUpForm.addEventListener("submit",(e)=>{
         e.preventDefault();
         if(error.nom.length == 0 && error.prenom.length == 0 && error.classe.length == 0 && error.email.length == 0 && error.telephone.length == 0 && error.password.length == 0){
-            alert("Success");
-        }else{
-            alert("Error");
+            let fData = new FormData(signUpForm);
+            let file = (cible == "parrains") ? "traitements/registerParrain.php" : "../traitements/registerFilleul.php";
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST",file,true);
+            
+            xhr.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    let reponse = this.response;
+                    if(reponse.success == 1){
+                        signUpForm.reset();
+                        Toastinette.show("success", 4000+Math.random()*1000, " Inscription reussie ! ");
+                    }else{
+                        for (let i = 0; i < reponse.message.length; i++) {
+                            const element = reponse.message[i];
+                            Toastinette.show("error", 4000+Math.random()*1000, element);
+                        }
+                    }
+                }
+            }
+            xhr.responseType = "json";
+            xhr.send(fData);
         }
     });
     signInForm.addEventListener("submit",(e)=>{
