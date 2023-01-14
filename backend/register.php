@@ -12,7 +12,7 @@ $classe = htmlspecialchars(strip_tags(($_REQUEST['classe'])));
 $passwd = $_REQUEST["password"];
 
 $phone_index = array("77","78","76","75");
-$classe_list = array("DSTR1B", "DSTI2A", "DSTI2B", 'DSTTR2');
+$classe_list = array("DSTI2A", "DSTI2B", 'DSTTR2');
 
 $smt = $conn->prepare("SELECT * FROM parrains_inf WHERE email= ?");
 $smt->execute([$email]);
@@ -25,10 +25,10 @@ if ($smt->rowCount() > 0) {
             $telephone = str_replace(' ','', $telephone);
 
             if (in_array(substr($telephone, 0, 2), $phone_index) and strlen($telephone) == 9) {
-                if (in_array($classe, $class_list)) {
+                if (in_array($classe, $classe_list)) {
                     if (strlen($passwd) > 8) {
                         $passwd = password_hash($passwd, PASSWORD_DEFAULT);
-                        $smt = $conn->prepare("INSERT INTO parrains_inf (prenom, nom, telephone, email, classe) VALUES (?, ?, ?, ?, ?, ?)");
+                        $smt = $conn->prepare("INSERT INTO parrains_inf (prenom, nom, telephone, email, classe, passwd) VALUES (?, ?, ?, ?, ?, ?)");
                         $smt->execute([$prenom, $nom, $telephone, $email, $classe, $passwd]);
 
                         if ($smt) {
@@ -46,6 +46,6 @@ if ($smt->rowCount() > 0) {
     }
 }
 
-$res = ["success" => $success, "message" => $message];
+$res = ["success" => $status, "message" => $message];
 echo json_encode($res);
 ?>

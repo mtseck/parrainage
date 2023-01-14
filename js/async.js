@@ -7,10 +7,9 @@ document.getElementById("sign-up-form").addEventListener("submit", function(e) {
   
     xhr.onload = function() {
         if (this.status == 200) {
-          //actions when register is successfull
-          
+            console.log(this.response)          
         } else {
-            //actions when register is not successfull
+          console.log(this.response)          
         }
     }
     
