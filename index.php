@@ -15,7 +15,8 @@
     <div class="container sign-up-mode">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <!--LOGIN FORM-->
+                <form action="login.php" class="sign-in-form">
                     <h2 class="title">Se Connecter</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -27,7 +28,10 @@
                     </div>
                     <input type="submit" value="Se connecter" class="btn solid" />
                 </form>
-                <form action="#" class="sign-up-form">
+
+                <!--REGISTER FORM-->
+
+                <form action="#" id="sign-up-form" class="sign-up-form">
                     <h2 class="title">S'inscrire</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -108,6 +112,7 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/async.js"></script>
     <script src="js/toggle.js"></script>
     <script src="js/validation.js"></script>
 </body>

@@ -11,6 +11,10 @@ input {
     font-family: "Poppins", sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 0em;
+  }
+
 .container {
     position: relative;
     width: 100%;
