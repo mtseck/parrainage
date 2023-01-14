@@ -21,11 +21,11 @@
                     <h2 class="title">Se Connecter</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="mail ou telephone" />
+                        <input type="email" placeholder="mail" name="mail_phone" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" name="login_pass" required/>
                     </div>
                     <input type="submit" value="Se connecter" class="btn solid" />
                 </form>

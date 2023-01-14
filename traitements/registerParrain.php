@@ -35,7 +35,7 @@ if ($smt->rowCount() > 0) {
 
 if (empty($message)) {
     $filiere = ($classe == "DSTTR2") ? "tr" : "inf";
-    $passwd = password_hash($passwd, PASSWORD_DEFAULT);
+    $passwd = md5($passwd);
     $smt = $conn->prepare("INSERT INTO parrains (prenom, nom, telephone, email, classe, filiere, password, nb_filleuls , is_admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $smt->execute([$prenom, $nom, $telephone, $email, $classe, $filiere, $passwd,0,0]);
     if ($smt) {

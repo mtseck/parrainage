@@ -6,43 +6,39 @@ $message = [];
 
 //get the form Data
 
-$prenom = htmlspecialchars($_REQUEST['prenom']);
-$nom = htmlspecialchars($_REQUEST['nom']);
-$email = htmlspecialchars($_REQUEST['email']);
-$telephone = htmlspecialchars($_REQUEST['telephone']);
-$classe = htmlspecialchars($_REQUEST['classe']);
-$passwd = $_REQUEST["password"];
+$login = htmlspecialchars($_REQUEST['mail_phone']);
+$passwd = md5($_REQUEST["login_pass"]);
 
-//set up a valid class list
+//check the existance of the user
 
-$class_list = array("DSTI1A", "DSTI1B", "DSTI1C", "DSTI1D", "DSTTR1A", "DSTTR1B");
-
-//check the unicity of the user
-
-$smt = $conn->prepare("SELECT * FROM filleuls WHERE email = ? ");
-$smt->bindParam(1, $email, PDO::PARAM_STR);
-$smt->execute();
-
-if ($smt->rowCount() > 0) {
-    $message[] = "Cet utilisateur existe déjà";
-} else {
-    if (!in_array($classe, $class_list)) {
-        $message[] = "Cette Classe n'existe pas";
-    }
-}
-
-//if there's no error, add user to database
-
-if (empty($message)) {
-    $filiere = ($classe == "DSTTR1A" || $classe == "DSTTR1B") ? "tr" : "inf";
-    $passwd = password_hash($passwd, PASSWORD_DEFAULT);
-    $smt = $conn->prepare("INSERT INTO filleuls (prenom, nom, telephone, email, classe, filiere, password, id_parrain) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $smt->execute([$prenom, $nom, $telephone, $email, $classe, $filiere, $passwd,NULL]);
-    if ($smt) {
+$smt = $conn->prepare("SELECT * FROM filleuls WHERE email = ? AND password = ? ");
+$smt->bindParam(1, $login, PDO::PARAM_STR);
+$smt->bindParam(2, $passwd, PDO::PARAM_STR);
+if($smt->execute()){
+    if ($smt->rowCount() > 0) {
         $status = 1;
     } else {
-        $message[] = "Échec de l'inscription !";
+        $message[] = "Identifiant ou mot de passe incorrect";
     }
+}else{
+    $message[] = "Une erreur est survenue";
+}
+
+
+
+//if there's no error, connect the user
+
+if ($status == 1) {
+    session_start();
+    $user = $smt->fetch();
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['prenom'] = $user['prenom'];
+    $_SESSION['nom'] = $user['nom'];
+    $_SESSION['telephone'] = $user['telephone'];
+    $_SESSION['email'] = $user['email'];
+    $_SESSION['classe'] = $user['classe'];
+    $_SESSION['filiere'] = $user['filiere'];
+    $_SESSION['id_parrain'] = $user['id_parrain'];
 }
 
 //feedback to the js script
