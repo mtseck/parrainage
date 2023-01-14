@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/toggle.css">
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="js/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -31,24 +31,24 @@
                     <h2 class="title">S'inscrire</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Prenom" name="prenom" />
+                        <input type="text" placeholder="Prenom" name="prenom" required />
                     </div>
                     <div class="input-field">
                         <i class="fa fa-tag"></i>
-                        <input type="text" placeholder="Nom" name="nom"/>
+                        <input type="text" placeholder="Nom" name="nom" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="email" />
+                        <input type="email" placeholder="Email" name="email" required/>
                     </div>
                     <div class="input-field phone">
                         <i class="fa fa-phone"></i>
                         <i class="indicator">+221</i>
-                        <input type="phone" placeholder="Telephone" name="telephone" />
+                        <input type="phone" placeholder="Telephone" name="telephone" required/>
                     </div>
                     <div class="input-field">
                         <i class="fa fa-users"></i>
-                        <select name="classe">
+                        <select name="classe" required>
                             <option value="" disabled selected>Choisir votre classe</option>
                             <option value="DSTI1A">DSTI1A</option>
                             <option value="DSTI1B">DSTI1B</option>
@@ -66,7 +66,7 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Mot de passe" name="password"/>
                     </div>
-                    <input type="submit" class="btn" value="S'inscrire" />
+                    <input type="submit" class="btn" value="S'inscrire" required/>
                 </form>
             </div>
         </div>
@@ -109,6 +109,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/toggle.js"></script>
+    <script src="js/validation.js"></script>
 </body>
 
 </html>

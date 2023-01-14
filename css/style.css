@@ -307,6 +307,14 @@ form.sign-in-form {
     pointer-events: all;
 }
 
+.input-field.error{
+    border: 2px solid crimson;
+}
+
+.input-field.success{
+    border: 2px solid #04befe;
+}
+
 @media (max-width: 870px) {
     .container {
         min-height: 800px;
