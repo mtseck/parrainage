@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container sign-up-mode">
+    <div class="container sign-up-mode" id="particles-js">
         <div class="forms-container">
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
@@ -109,6 +109,8 @@
 
     <script src="js/main.js"></script>
     <script src="js/toggle.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 
 </html>

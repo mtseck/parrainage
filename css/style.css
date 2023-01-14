@@ -440,4 +440,13 @@ form.sign-in-form {
         bottom: 28%;
         left: 50%;
     }
+
+    .input-field {
+        margin: 7px 0;
+        height: 50px;
+    }
+    
+    .input-field i {
+        line-height: 40px;
+    }    
 }
