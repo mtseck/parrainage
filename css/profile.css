@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+.container{
+    transition: all .5s ease;
+}
+
+.container.dark-theme{
+    background-color: #2B3649;
+    color: #fff;
+}
+
+.page-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1rem 8rem;
+}
+
+.container.dark-theme .user{
+    box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.4);
+    background: #000;
+}
+.user{
+    box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 35px 20px;
+}
+
+.container.dark-theme .user-profile{
+    box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.25);
+    border: 3px solid #04befe;
+}
+
+.user-profile{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+}
+
+.user-name{
+    font-size: 24px;
+    margin: 10px 10px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.user-more{
+    font-size: 18px;
+    margin: 10px auto;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.details{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.details .tab-nav{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    align-items: center;
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+}
+
+.details .tab-nav-item{
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 5px 10px;
+}
+
+.details .tab-nav-item:hover{
+    color: #396ec8;
+}
+
+.details .tab-nav-item.active{
+    border-bottom: 5px solid #04befe;
+    border-radius: 4px;
+}
+
+.details .tab-content{
+    display: none;
+    width: 90%;
+}
+
+.details .tab-content.active{
+    display: block;
+}
+
+h2.title{
+    color: #04befe;
+    margin: 10px 25px;
+    text-align: center;
+}
+
+h2.title + p{
+    text-align: center;
+}
+
+.details dl{
+    margin: 10px 25px;
+    text-align: center;
+}
+
+.details dl dt{
+    display: inline-block;
+}
+.details dl dd{
+    display: inline-block;
+}
+
+
+@media only screen and (max-width: 1080px) {
+    .page-content{
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem .8rem;
+    }
+    .user{
+        width: 75%;
+    }
+    .details{
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 860px) {
+    .user{
+        width: 85%;
+    }
+    .details{
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .user{
+        width: 95%;
+    }
+    .details{
+        width: 95%;
+    }
+}

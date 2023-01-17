@@ -11,6 +11,7 @@
     <script src="js/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/toastinette.css">
     <script type="text/javascript" src="js/toastinette.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
 </head>
 
 <body cible="parrains">

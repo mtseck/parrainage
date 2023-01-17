@@ -149,7 +149,7 @@ form.sign-in-form {
     justify-content: center;
 }
 
-.social-icon {
+/* .social-icon {
     height: 46px;
     width: 46px;
     display: flex;
@@ -167,7 +167,7 @@ form.sign-in-form {
 .social-icon:hover {
     color: #4481eb;
     border-color: #4481eb;
-}
+} */
 
 .btn {
     width: 150px;

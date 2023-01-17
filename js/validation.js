@@ -194,9 +194,10 @@ window.addEventListener('load', function () {
                             e.classList.remove("success");
                         });
                         signInForm.reset();
-                        let time = 4000 + Math.random() * 1000;
+                        let time = 3000 + Math.random() * 1000;
                         Toastinette.show("success", time, " Connexion reussie ! ");
-                        Toastinette.show("info", time, "Vous allez etre redirige ");
+                        Toastinette.show("info", time, "Vous allez être redirigé(e) vers votre page personnelle.");
+                        setTimeout(()=>window.location.replace("profile.php"),time);
                     } else {
                         for (let i = 0; i < reponse.message.length; i++) {
                             const element = reponse.message[i];
