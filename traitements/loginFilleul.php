@@ -39,6 +39,7 @@ if ($status == 1) {
     $_SESSION['classe'] = $user['classe'];
     $_SESSION['filiere'] = $user['filiere'];
     $_SESSION['id_parrain'] = $user['id_parrain'];
+    $_SESSION['passwd'] = $user['password'];
 }
 
 //feedback to the js script

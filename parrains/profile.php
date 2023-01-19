@@ -94,35 +94,35 @@ if (!isset($_SESSION['id'])) {
       </div>
       <div class="tab-content" data-target="3">
         <h2 class="title">Modifier mes informations</h2>
-        <form class="form-container">
+        <form class="form-container" method="post" action="../traitements/modif-info-parrain.php">
           <div class="form-group email-group">
             <label for="email">Email</label>
-            <input id="email" type="text" value="<?= $_SESSION['email'] ?>">
+            <input id="email" type="text" name="email" value="<?= $_SESSION['email'] ?>">
           </div>
 
           <div class="form-group phone-group">
             <label for="phone">Téléphone (mobile)</label>
-            <input id="phone" type="text" value="<?= $_SESSION['telephone'] ?>">
+            <input id="phone" type="text" name="phone" value="<?= $_SESSION['telephone'] ?>">
           </div>
 
           <div class="button-container">
-            <button class="button">Enregister les modifications</button>
+            <button class="button" type="submit">Enregister les modifications</button>
           </div>
         </form>
         <h2 class="title">Modifier mon mot de passe</h2>
-        <form class="form-container">
+        <form class="form-container" method="post" action="../traitements/modif-info-parrain.php">
           <div class="form-group email-group">
             <label for="currentMdp">Mot de passe actuel</label>
-            <input id="currentMdp" type="password">
+            <input id="currentMdp" type="password" name="currentMDP">
           </div>
 
           <div class="form-group phone-group">
             <label for="newMdp">Nouveau mot de passe</label>
-            <input id="newMdp" type="password">
+            <input id="newMdp" type="password" name="newMDP">
           </div>
 
           <div class="button-container">
-            <button class="button">Changer</button>
+            <button class="button" type="submit">Changer</button>
           </div>
         </form>
       </div>

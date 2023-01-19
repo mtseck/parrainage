@@ -40,6 +40,7 @@ if ($status == 1) {
     $_SESSION['filiere'] = $user['filiere'];
     $_SESSION['nb_filleuls'] = $user['nb_filleuls'];
     $_SESSION['is_admin'] = $user['is_admin'];
+    $_SESSION['passwd'] = $user['password'];
 }
 
 //feedback to the js script

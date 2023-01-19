@@ -27,7 +27,7 @@ if ($smt->rowCount() > 0) {
     $message[] = "Cet utilisateur existe déjà";
 } else {
     if (!in_array($classe, $class_list)) {
-        $message[] = "Cette Classe n'existe pas";
+        $message[] = "Cette classe n'existe pas";
     }
 }
 
