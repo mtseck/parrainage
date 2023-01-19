@@ -139,7 +139,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         if (error.nom.length == 0 && error.prenom.length == 0 && error.classe.length == 0 && error.email.length == 0 && error.telephone.length == 0 && error.password.length == 0) {
             let fData = new FormData(signUpForm);
-            let file = (cible == "parrains") ? "traitements/registerParrain.php" : "../traitements/registerFilleul.php";
+            let file = (cible == "parrains") ? "../traitements/registerParrain.php" : "../traitements/registerFilleul.php";
             let xhr = new XMLHttpRequest();
             xhr.open("POST", file, true);
 
@@ -177,7 +177,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         if (errorLogin.login.length == 0 && errorLogin.password.length == 0) {
             let fData = new FormData(signInForm);
-            let file = (cible == "parrains") ? "traitements/loginParrain.php" : "../traitements/loginFilleul.php";
+            let file = (cible == "parrains") ? "../traitements/loginParrain.php" : "../traitements/loginFilleul.php";
             let xhr = new XMLHttpRequest();
             xhr.open("POST", file, true);
 
@@ -194,9 +194,9 @@ window.addEventListener('load', function () {
                             e.classList.remove("success");
                         });
                         signInForm.reset();
-                        let time = 3000 + Math.random() * 1000;
+                        let time = 2000 + Math.random() * 1000;
                         Toastinette.show("success", time, " Connexion reussie ! ");
-                        Toastinette.show("info", time, "Vous allez être redirigé(e) vers votre page personnelle.");
+                        Toastinette.show("info", time, "redirection en cours ...");
                         setTimeout(()=>window.location.replace("profile.php"),time);
                     } else {
                         for (let i = 0; i < reponse.message.length; i++) {

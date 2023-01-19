@@ -113,6 +113,20 @@ body{
     display: block;
 }
 
+.content-page{
+    width: 100%;
+    padding: 25px 10%;
+}
+
+h1.title{
+    color: #04befe;
+    margin: 15px 25px;
+    margin-left: 0;
+    text-align: justify;
+    text-transform: capitalize;
+    font-size: 60px;
+}
+
 h2.title{
     color: #04befe;
     margin: 10px 25px;

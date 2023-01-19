@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['is_admin'])){
+        header("location:profile.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,12 +12,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/toggle.css">
-    <script src="js/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/toastinette.css">
-    <script type="text/javascript" src="js/toastinette.js"></script>
-    <script type="text/javascript" src="js/cookie.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/toggle.css">
+    <script src="../js/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/toastinette.css">
+    <script type="text/javascript" src="../js/toastinette.js"></script>
+    <script type="text/javascript" src="../js/cookie.js"></script>
 </head>
 
 <body cible="parrains">
@@ -79,7 +85,7 @@
                         S'inscrire
                     </button>
                 </div>
-                <img src="img/log.svg" class="image" alt="" />
+                <img src="../img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -91,7 +97,7 @@
                         Se Connecter
                     </button>
                 </div>
-                <img src="img/register.svg" class="image" alt="" />
+                <img src="../img/register.svg" class="image" alt="" />
             </div>
         </div>
         <div class="theme-toggle">
@@ -104,9 +110,9 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/toggle.js"></script>
-    <script src="js/validation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/toggle.js"></script>
+    <script src="../js/validation.js"></script>
 </body>
 
 </html>

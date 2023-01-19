@@ -11,16 +11,15 @@ if (!isset($_SESSION['id'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/form.css">
-  <link rel="stylesheet" href="css/profile.css">
-  <link rel="stylesheet" href="css/toggle.css">
-  <script src="js/64d58efce2.js" crossorigin="anonymous"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="css/toastinette.css">
-  <script type="text/javascript" src="js/toastinette.js"></script>
-  <script type="text/javascript" src="js/cookie.js"></script>
+  <title>Profil</title>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/toggle.css">
+  <script src="../js/64d58efce2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/toastinette.css">
+  <script type="text/javascript" src="../js/toastinette.js"></script>
+  <script type="text/javascript" src="../js/cookie.js"></script>
   <style>
     .theme-toggle {
       position: fixed;
@@ -35,39 +34,35 @@ if (!isset($_SESSION['id'])) {
 
 <body class="container">
   <header>
-    <a class="logo" href="profile.php"><img src="img/cody.png" alt="logo"></a>
+    <a class="logo" href="profile.php"><img src="../img/cody.png" alt="logo"></a>
     <nav>
       <ul class="nav__links">
         <li><a href="profile.php">Profil</a></li>
-        <li><a href="#">Mes Filleuls</a></li>
-        <li><a href="#">Contact</a></li>
-        <?= ($_SESSION['is_admin']) ? "<li><a href=\"#\">Administrer</a></li>" : "" ?>
+        <?= ($_SESSION['is_admin']) ? "<li><a href=\"../tirage.php\">Tirage</a></li>" : "" ?>
       </ul>
     </nav>
     <a class="cta" href="logout.php">Déconnexion</a>
     <p class="menu cta">Menu</p>
   </header>
   <div id="mobile__menu" class="overlay">
-    <img src="img/cody.png" alt="" class="mobile-logo">
+    <img src="../img/cody.png" alt="" class="mobile-logo">
     <a class="close">&times;</a>
     <div class="overlay__content">
       <a href="profile.php">Profil</a>
-      <a href="#">Mes Filleuls</a>
-      <a href="#">Contact</a>
-      <?= ($_SESSION['is_admin']) ? "<a href=\"#\">Administrer</a>" : "" ?>
+      <?= ($_SESSION['is_admin']) ? "<a href=\"../tirage.php\">Tirage</a>" : "" ?>
       <a href="logout.php">Déconnexion</a>
     </div>
   </div>
   <div class="page-content">
     <div class="user">
-      <img src="img/user.png" alt="user" class="user-profile" width="250">
+      <img src="../img/user.png" alt="user" class="user-profile" width="250">
       <h2 class="user-name"><?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></h2>
       <p class="user-more"><?= $_SESSION['classe'] . ' - ' . $_SESSION['filiere'] ?></p>
     </div>
     <div class="tab-container details">
       <ul class="tab-nav">
         <li class="tab-nav-item active" target="1">Profil</li>
-        <li class="tab-nav-item" target="2">Notifications</li>
+        <li class="tab-nav-item" target="2">Filleuls</li>
         <li class="tab-nav-item" target="3">Paramètres</li>
       </ul>
       <div class="tab-content active" data-target="1">
@@ -92,24 +87,22 @@ if (!isset($_SESSION['id'])) {
           <dd><?= $_SESSION['filiere'] ?></dd>
           <br>
         </dl>
-        <h2 class="title">Mes filleuls</h2>
-        <?= ($_SESSION['nb_filleuls'] == 0) ? "<p>Vous n'avez pas encore de filleuls</p>" : "<p>Vous avez " . $_SESSION['nb_filleuls'] . " filleuls</p>"; ?>
       </div>
       <div class="tab-content" data-target="2">
-        <h2 class="title"></h2>
-        <p>Aucune Notification pour le moment.</p>
+        <h2 class="title">Mes filleuls</h2>
+        <?= ($_SESSION['nb_filleuls'] == 0) ? "<p>Vous n'avez pas encore de filleuls</p>" : "<p>Vous avez " . $_SESSION['nb_filleuls'] . " filleuls</p>"; ?>
       </div>
       <div class="tab-content" data-target="3">
         <h2 class="title">Modifier mes informations</h2>
         <form class="form-container">
           <div class="form-group email-group">
             <label for="email">Email</label>
-            <input id="email" type="text">
+            <input id="email" type="text" value="<?= $_SESSION['email'] ?>">
           </div>
 
           <div class="form-group phone-group">
             <label for="phone">Téléphone (mobile)</label>
-            <input id="phone" type="text">
+            <input id="phone" type="text" value="<?= $_SESSION['telephone'] ?>">
           </div>
 
           <div class="button-container">
@@ -145,8 +138,8 @@ if (!isset($_SESSION['id'])) {
     </label>
   </div>
 
-  <script src="js/profile.js"></script>
-  <script src="js/toggle.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/toggle.js"></script>
 </body>
 
 </html>
