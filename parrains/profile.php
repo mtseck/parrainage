@@ -69,22 +69,22 @@ if (!isset($_SESSION['id'])) {
         <h2 class="title">Mes informations</h2>
         <dl>
           <dt>Prenom - </dt>
-          <dd><?= $_SESSION['prenom'] ?></dd>
+          <dd><?= $_SESSION['prenom'] ?></dd><br>
           <br>
           <dt>Nom - </dt>
-          <dd><?= $_SESSION['nom'] ?></dd>
+          <dd><?= $_SESSION['nom'] ?></dd><br>
           <br>
           <dt>telephone - </dt>
-          <dd><?= $_SESSION['telephone'] ?></dd>
+          <dd><?= $_SESSION['telephone'] ?></dd><br>
           <br>
           <dt>email - </dt>
-          <dd><?= $_SESSION['email'] ?></dd>
+          <dd><?= $_SESSION['email'] ?></dd><br>
           <br>
           <dt>classe - </dt>
-          <dd><?= $_SESSION['classe'] ?></dd>
+          <dd><?= $_SESSION['classe'] ?></dd><br>
           <br>
           <dt>filiere - </dt>
-          <dd><?= $_SESSION['filiere'] ?></dd>
+          <dd><?= $_SESSION['filiere'] ?></dd><br>
           <br>
         </dl>
       </div>

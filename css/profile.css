@@ -140,6 +140,10 @@ h2.title + p{
 .details dl{
     margin: 10px 25px;
     text-align: center;
+    border: 2px solid #04befe;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 .details dl dt{
