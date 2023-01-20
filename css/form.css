@@ -35,10 +35,10 @@
 	font-size: 18px;
 	border: 1px solid #2B3649;
 }
-.form-group [type]:hover {
+.form-group:not(.success, .error) [type]:hover {
 	border-color: #a8afb9;
 }
-.form-group [type]:focus {
+.form-group:not(.success, .error) [type]:focus {
 	border-color: #4d84e2;
 }
 
@@ -59,6 +59,22 @@
 }
 .button:focus {
 	background: #019dd1;
+}
+
+.container.dark-theme .form-group.success input{
+    border: 2px solid #04befe;
+}
+
+.container.dark-theme .form-group.error input{
+    border: 2px solid crimson;
+}
+
+.form-group.success input{
+    border: 2px solid #04befe;
+}
+
+.form-group.error input{
+    border: 2px solid crimson;
 }
 
 @media screen and (min-width: 768px) {

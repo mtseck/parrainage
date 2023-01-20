@@ -94,7 +94,7 @@ if (!isset($_SESSION['id'])) {
       </div>
       <div class="tab-content" data-target="3">
         <h2 class="title">Modifier mes informations</h2>
-        <form class="form-container" method="post" action="../traitements/modif-info-parrain.php">
+        <form class="form-container" id="info-form" method="post" action="../traitements/modif-info-parrain.php">
           <div class="form-group email-group">
             <label for="email">Email</label>
             <input id="email" type="text" name="email" value="<?= $_SESSION['email'] ?>">
@@ -110,7 +110,7 @@ if (!isset($_SESSION['id'])) {
           </div>
         </form>
         <h2 class="title">Modifier mon mot de passe</h2>
-        <form class="form-container" method="post" action="../traitements/modif-info-parrain.php">
+        <form class="form-container" id="pass-form" method="post" action="../traitements/modif-info-parrain.php">
           <div class="form-group email-group">
             <label for="currentMdp">Mot de passe actuel</label>
             <input id="currentMdp" type="password" name="currentMDP">
@@ -140,6 +140,8 @@ if (!isset($_SESSION['id'])) {
 
   <script src="../js/profile.js"></script>
   <script src="../js/toggle.js"></script>
+  <script src="../js/validationParrain.js"></script>
+
 </body>
 
 </html>
