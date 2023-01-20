@@ -4,6 +4,21 @@ if (!isset($_SESSION['id'])) {
   header("location:index.php");
 }
 ?>
+<?php
+include_once("../traitements/config.php");
+$req = $conn->prepare("SELECT * FROM filleuls WHERE id_parrain = ?");
+$req->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
+if ($req->execute()) {
+  $filleuls = $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+$req2 = $conn->prepare("SELECT * FROM parrains WHERE id = ?");
+$req2->bindParam(1, $_SESSION['id'], PDO::PARAM_INT);
+if ($req2->execute()) {
+  $data = $req2->fetchAll(PDO::FETCH_ASSOC)[0];
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -38,7 +53,7 @@ if (!isset($_SESSION['id'])) {
     <nav>
       <ul class="nav__links">
         <li><a href="profile.php">Profil</a></li>
-        <?= ($_SESSION['is_admin']) ? "<li><a href=\"../tirage.php\">Tirage</a></li>" : "" ?>
+        <?=($_SESSION['is_admin']) ? "<li><a href=\"../tirage.php\">Tirage</a></li>" : "" ?>
       </ul>
     </nav>
     <a class="cta" href="logout.php">Déconnexion</a>
@@ -49,15 +64,17 @@ if (!isset($_SESSION['id'])) {
     <a class="close">&times;</a>
     <div class="overlay__content">
       <a href="profile.php">Profil</a>
-      <?= ($_SESSION['is_admin']) ? "<a href=\"../tirage.php\">Tirage</a>" : "" ?>
+      <?=($_SESSION['is_admin']) ? "<a href=\"../tirage.php\">Tirage</a>" : "" ?>
       <a href="logout.php">Déconnexion</a>
     </div>
   </div>
   <div class="page-content">
     <div class="user">
       <img src="../img/user.png" alt="user" class="user-profile" width="250">
-      <h2 class="user-name"><?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></h2>
-      <p class="user-more"><?= $_SESSION['classe'] . ' - ' . $_SESSION['filiere'] ?></p>
+      <h2 class="user-name">
+        <?= $data['prenom'] . ' ' . $data['nom'] ?>
+      </h2>
+      <p class="user-more"><?= $data['classe'] . ' - ' . $data['filiere'] ?></p>
     </div>
     <div class="tab-container details">
       <ul class="tab-nav">
@@ -69,40 +86,60 @@ if (!isset($_SESSION['id'])) {
         <h2 class="title">Mes informations</h2>
         <dl>
           <dt>Prenom - </dt>
-          <dd><?= $_SESSION['prenom'] ?></dd><br>
+          <dd>
+            <?= $data['prenom'] ?>
+          </dd><br>
           <br>
           <dt>Nom - </dt>
-          <dd><?= $_SESSION['nom'] ?></dd><br>
+          <dd><?= $data['nom'] ?></dd><br>
           <br>
           <dt>telephone - </dt>
-          <dd><?= $_SESSION['telephone'] ?></dd><br>
+          <dd>
+            <?= $data['telephone'] ?>
+          </dd><br>
           <br>
           <dt>email - </dt>
-          <dd><?= $_SESSION['email'] ?></dd><br>
+          <dd><?= $data['email'] ?></dd><br>
           <br>
           <dt>classe - </dt>
-          <dd><?= $_SESSION['classe'] ?></dd><br>
+          <dd>
+            <?= $data['classe'] ?>
+          </dd><br>
           <br>
           <dt>filiere - </dt>
-          <dd><?= $_SESSION['filiere'] ?></dd><br>
+          <dd>
+            <?= $data['filiere'] ?>
+          </dd><br>
           <br>
         </dl>
       </div>
       <div class="tab-content" data-target="2">
         <h2 class="title">Mes filleuls</h2>
-        <?= ($_SESSION['nb_filleuls'] == 0) ? "<p>Vous n'avez pas encore de filleuls</p>" : "<p>Vous avez " . $_SESSION['nb_filleuls'] . " filleuls</p>"; ?>
+        <?=($data['nb_filleuls'] == 0) ? "<p>Vous n'avez pas encore de filleuls</p>" : "<p>Vous avez " . $data['nb_filleuls'] . " filleul(s)</p>"; ?>
+        <?php
+        for ($i = 0; $i < count($filleuls); $i++) {
+          ?>
+          <div class="ucard">
+            <h2 class="ucard-name">
+              <?= $filleuls[$i]['prenom'] . ' ' . $filleuls[$i]['nom'] ?>
+            </h2>
+            <p class="ucard-more"><?= $filleuls[$i]['classe'] . ' - ' . $filleuls[$i]['filiere'] . ' - ' . $filleuls[$i]['telephone'] ?></p>
+          </div>
+        <?php
+        }
+        ?>
       </div>
       <div class="tab-content" data-target="3">
         <h2 class="title">Modifier mes informations</h2>
         <form class="form-container" id="info-form" method="post" action="../traitements/modif-info-parrain.php">
           <div class="form-group email-group">
             <label for="email">Email</label>
-            <input id="email" type="text" name="email" value="<?= $_SESSION['email'] ?>">
+            <input id="email" type="text" name="email" value="<?= $data['email'] ?>">
           </div>
 
           <div class="form-group phone-group">
             <label for="phone">Téléphone (mobile)</label>
-            <input id="phone" type="text" name="phone" value="<?= $_SESSION['telephone'] ?>">
+            <input id="phone" type="text" name="phone" value="<?= $data['telephone'] ?>">
           </div>
 
           <div class="button-container">
