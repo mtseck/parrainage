@@ -147,14 +147,6 @@ window.addEventListener('load', function () {
                 if (this.readyState == 4 && this.status == 200) {
                     let reponse = this.response;
                     if (reponse.success == 1) {
-                        error = {
-                            prenom: "",
-                            nom: "",
-                            email: "",
-                            telephone: "",
-                            classe: "",
-                            password: ""
-                        };
                         signUpForm.querySelectorAll(".input-field").forEach(e => {
                             e.classList.remove("error");
                             e.classList.remove("success");
@@ -185,10 +177,6 @@ window.addEventListener('load', function () {
                 if (this.readyState == 4 && this.status == 200) {
                     let reponse = this.response;
                     if (reponse.success == 1) {
-                        errorLogin = {
-                            login : "",
-                            password: ""
-                        };
                         signInForm.querySelectorAll(".input-field").forEach(e => {
                             e.classList.remove("error");
                             e.classList.remove("success");
