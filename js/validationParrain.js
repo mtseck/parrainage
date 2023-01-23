@@ -125,10 +125,6 @@ window.addEventListener('load', function () {
                 if (this.readyState == 4 && this.status == 200) {
                     let reponse = this.response;
                     if (reponse.success == 1) {
-                        errorPass = {
-                            login : "",
-                            password: ""
-                        };
                         passForm.querySelectorAll(".input-field").forEach(e => {
                             e.classList.remove("error");
                             e.classList.remove("success");
