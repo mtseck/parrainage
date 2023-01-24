@@ -97,6 +97,7 @@ window.addEventListener('load', function () {
                             e.classList.remove("error");
                             e.classList.remove("success");
                         });
+                        // Toastinette.show("success", 4000 + Math.random() * 1000, " Inscription reussie ! ");
                         for (let i = 0; i < reponse.message.length; i++) {
                             const element = reponse.message[i];
                             Toastinette.show("success", 4000 + Math.random() * 1000, element);
