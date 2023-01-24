@@ -66,7 +66,7 @@ if(!isset($_SESSION['is_admin'])){
             <?php
 
             // Établissement de la connexion à la base de données
-            $mysqli = new mysqli('localhost', 'root', '', 'id20143841_codi_2023');
+            $mysqli = new mysqli('localhost', 'seck', 'passer123', 'id20143841_codi_2023');
 
             // Vérification de la connexion
             if ($mysqli->connect_error) {
