@@ -61,82 +61,8 @@ if(!isset($_SESSION['is_admin'])){
 
 
     <div class="content-page">
-        <h1 class="title">tirage</h1>
         <p>
-            <?php
-
-            // Établissement de la connexion à la base de données
-            $mysqli = new mysqli('localhost', 'seck', 'passer123', 'id20143841_codi_2023');
-
-            // Vérification de la connexion
-            if ($mysqli->connect_error) {
-                die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-                    . $mysqli->connect_error);
-            }
-
-            // Préparation des requêtes SQL
-            $query1 = "SELECT * FROM parrains";
-            $query2 = "SELECT * FROM filleuls";
-
-            // Exécution de la requête
-            $result1 = $mysqli->query($query1);
-
-            // Vérification du résultat
-            if (!$result1) {
-                die('Erreur dans la requête (' . $mysqli->errno . ') ' . $mysqli->error);
-            }
-
-            // Exécution de la requête
-            $result2 = $mysqli->query($query2);
-
-            // Vérification du résultat
-            if (!$result2) {
-                die('Erreur dans la requête (' . $mysqli->errno . ') ' . $mysqli->error);
-            }
-
-            // Mise en place des tableaux PHP
-            $liste1 = array();
-            $liste2 = array();
-
-            // Remplissage des tableaux avec les données de la requête
-            while ($row = $result1->fetch_assoc()) {
-                $liste1[] = $row['id'];
-            }
-
-            while ($row = $result2->fetch_assoc()) {
-                $liste2[] = $row['id'];
-            }
-
-            // Mélange des tableaux
-            shuffle($liste1);
-            shuffle($liste2);
-
-            //added: calcul de la taille des listes
-
-            $length1 = count($liste1);
-            $length2 = count($liste2);
-
-            $indexParrain = 0;
-            $indexFilleul = 0;
-            $i = 1;
-
-            //modified: Tirage au sort
-
-            while ($indexFilleul < $length2) {
-                if($indexParrain == $length1) $indexParrain = 0;
-                echo "Paire " . ($i) . ": " . $liste1[$indexParrain] . " - " . $liste2[$indexFilleul] . "<br>";
-                $i++;
-                $indexParrain++;
-                $indexFilleul++;
-            }
-            // for ($i = 0; $i < count($liste1); $i++) {
-            //     echo "Paire " . ($i + 1) . ": " . $liste1[$i] . " - " . $liste2[$i] . "<br>";
-            // }
-
-            // Fermeture de la connexion
-            $mysqli->close();
-
-            ?>
+            
         </p>
     </div>
 
